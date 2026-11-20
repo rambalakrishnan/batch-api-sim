@@ -1,0 +1,24 @@
+name = "batch-api-sim"
+main = "build/worker/shim.mjs"
+compatibility_date = "2026-11-20"
+
+[[durable_objects.bindings]]
+name = "FILE_REGISTRY"
+class_name = "FileRegistry"
+
+[[durable_objects.bindings]]
+name = "BATCH_COORDINATOR"
+class_name = "BatchCoordinator"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["FileRegistry", "BatchCoordinator"]
+
+[vars]
+SIM_VALIDATION_DELAY_MS = "30000"
+SIM_PROCESSING_DELAY_MS = "300000"
+SIM_JITTER_PCT = "50"
+SIM_BATCH_FAIL_RATE = "0.0"
+SIM_ITEM_FAIL_RATE = "0.0"
+SIM_EDGE_CHAOS_RATE = "0.0"
+SIM_REQUIRE_AUTH = "0"
